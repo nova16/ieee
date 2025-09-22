@@ -232,14 +232,16 @@
   <sort>
     <key variable="citation-number"/>
   </sort>
-  <layout delimiter=", " collapse="citation-number" range-delimiter="–">
 
-    <group prefix="[" suffix="]" delimiter=", ">
+  <!-- Ganti baris layout jadi: -->
+  <layout prefix="[" suffix="]" delimiter=", " collapse="citation-number" range-delimiter="-">
+    <group delimiter=", ">
       <text variable="citation-number"/>
       <text macro="citation-locator"/>
     </group>
   </layout>
 </citation>
+
   <!-- Bibliography -->
   <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
