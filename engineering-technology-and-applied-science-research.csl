@@ -19,6 +19,7 @@
     <updated>2022-11-23T04:04:21+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
+
   <locale xml:lang="en">
     <terms>
       <term name="chapter" form="short">ch.</term>
@@ -26,6 +27,7 @@
       <term name="available at">available</term>
     </terms>
   </locale>
+
   <!-- Macros -->
   <macro name="status">
     <choose>
@@ -34,6 +36,7 @@
       </if>
     </choose>
   </macro>
+
   <macro name="edition">
     <choose>
       <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
@@ -51,6 +54,7 @@
       </if>
     </choose>
   </macro>
+
   <macro name="issued">
     <choose>
       <if type="article-journal report" match="any">
@@ -79,6 +83,7 @@
       </else>
     </choose>
   </macro>
+
   <macro name="author">
     <names variable="author">
       <name and="text" et-al-min="7" et-al-use-first="1" initialize-with=". "/>
@@ -90,12 +95,14 @@
       </substitute>
     </names>
   </macro>
+
   <macro name="editor">
     <names variable="editor">
       <name initialize-with=". " delimiter=", " and="text"/>
       <label form="short" prefix=", " text-case="capitalize-first"/>
     </names>
   </macro>
+
   <macro name="locators">
     <group delimiter=", ">
       <text macro="edition"/>
@@ -113,6 +120,7 @@
       </group>
     </group>
   </macro>
+
   <macro name="title">
     <choose>
       <if type="bill book graphic legal_case legislation motion_picture song" match="any">
@@ -123,6 +131,7 @@
       </else>
     </choose>
   </macro>
+
   <macro name="publisher">
     <choose>
       <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference song" match="any">
@@ -139,6 +148,7 @@
       </else>
     </choose>
   </macro>
+
   <macro name="event">
     <choose>
       <if type="paper-conference speech" match="any">
@@ -167,6 +177,7 @@
       </if>
     </choose>
   </macro>
+
   <macro name="access">
     <choose>
       <if type="webpage post post-weblog" match="any">
@@ -208,12 +219,14 @@
       </else>
     </choose>
   </macro>
+
   <macro name="page">
     <group>
       <label variable="page" form="short" suffix=" "/>
       <text variable="page"/>
     </group>
   </macro>
+
   <macro name="citation-locator">
     <group delimiter=" ">
       <choose>
@@ -227,20 +240,21 @@
       <text variable="locator"/>
     </group>
   </macro>
-  <!-- Citation -->
-<citation>
-  <sort>
-    <key variable="citation-number"/>
-  </sort>
 
-  <!-- Ganti baris layout jadi: -->
-  <layout prefix="[" suffix="]" delimiter=", " collapse="citation-number" range-delimiter="-">
-    <group delimiter=", ">
-      <text variable="citation-number"/>
-      <text macro="citation-locator"/>
-    </group>
-  </layout>
-</citation>
+  <!-- Citation -->
+  <citation>
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <!-- Satu pasang kurung untuk seluruh cluster; gabung & rangkai rentang -->
+    <layout prefix="[" suffix="]" delimiter=", " collapse="citation-number" range-delimiter="–">
+      <!-- Render per item: nomor + locator (jika ada) -->
+      <group delimiter=" ">
+        <text variable="citation-number"/>
+        <text macro="citation-locator"/>
+      </group>
+    </layout>
+  </citation>
 
   <!-- Bibliography -->
   <bibliography entry-spacing="0" second-field-align="flush">
