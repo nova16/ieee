@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
   <info>
-    <title>Engineering, Technology &amp; Applied Science Research</title>
-    <title-short>ETASR</title-short>
-    <id>http://www.zotero.org/styles/engineering-technology-and-applied-science-research</id>
-    <link href="http://www.zotero.org/styles/engineering-technology-and-applied-science-research" rel="self"/>
+    <title>ETASR (custom range collapse)</title>
+    <title-short>ETASR-custom</title-short>
+    <id>http://www.zotero.org/styles/etasr-custom-range-collapse</id>
+    <link href="http://www.zotero.org/styles/etasr-custom-range-collapse" rel="self"/>
     <link href="http://www.zotero.org/styles/ieee" rel="template"/>
     <link href="http://etasr.com/ETASRTEMPLATE.docx" rel="documentation"/>
     <author>
@@ -15,8 +15,8 @@
     <category field="engineering"/>
     <issn>2241-4487</issn>
     <eissn>1792-8036</eissn>
-    <summary>ETASR style largely based on IEEE 2018 guidelines, V 11.12.2018 without the use of abbreviations for containers and with the use of full URL for DOIs.</summary>
-    <updated>2022-11-23T04:04:21+00:00</updated>
+    <summary>ETASR style based on IEEE; customized to collapse numeric citations into ranges (e.g., [1–3, 5]).</summary>
+    <updated>2025-09-22T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -242,13 +242,11 @@
   </macro>
 
   <!-- Citation -->
-  <citation>
+  <citation collapse="citation-number">
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <!-- Satu pasang kurung untuk seluruh cluster; gabung & rangkai rentang -->
-    <layout prefix="[" suffix="]" delimiter=", " collapse="citation-number" range-delimiter="–">
-      <!-- Render per item: nomor + locator (jika ada) -->
+    <layout prefix="[" suffix="]" delimiter=", " range-delimiter="–">
       <group delimiter=" ">
         <text variable="citation-number"/>
         <text macro="citation-locator"/>
